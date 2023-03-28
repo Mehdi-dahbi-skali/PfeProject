@@ -47,7 +47,7 @@
         android:id="@+id/usernameinput"
         android:layout_width="340dp"
         android:layout_height="50dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/bginput"
         android:ems="10"
         android:fontFamily="@font/bebasneueregular"
@@ -60,10 +60,10 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <EditText
-        android:id="@+id/usernameinput2"
+        android:id="@+id/pwdinput"
         android:layout_width="340dp"
         android:layout_height="50dp"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/bginput"
         android:ems="10"
         android:fontFamily="@font/bebasneueregular"
@@ -76,20 +76,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/usernameinput" />
 
+    <EditText
+        android:id="@+id/usernameinput3"
+        android:layout_width="340dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bginput"
+        android:ems="10"
+        android:fontFamily="@font/bebasneueregular"
+        android:hint="Confirm Pasworld"
+        android:inputType="textPassword"
+        android:paddingLeft="15dp"
+        android:paddingTop="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pwdinput" />
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/ButtonLogin"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="24dp"
         android:background="@drawable/bgbtn"
         android:fontFamily="@font/bebasneueregular"
         android:paddingTop="0dp"
         android:text="Login"
         android:textColor="@color/white"
         android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="@+id/usernameinput2"
-        app:layout_constraintStart_toStartOf="@+id/usernameinput2"
-        app:layout_constraintTop_toBottomOf="@+id/usernameinput2" />
+        app:layout_constraintEnd_toEndOf="@+id/pwdinput"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/pwdinput"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView2"
@@ -99,11 +117,11 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/bebasneueregular"
         android:text="FORGET YOUR ACCOUNT INFO"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintStart_toStartOf="@+id/ButtonLogin"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonLogin" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/help"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -111,7 +129,7 @@
         android:text="GET HELP"
         android:textColor="#A90069E3"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="@+id/ButtonLogin"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2"
@@ -140,7 +158,7 @@
         app:layout_constraintVertical_bias="0.466" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -149,10 +167,26 @@
         android:textColor="#610069E3"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="@+id/help"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="90dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bgbtn"
+        android:drawableTint="@color/white"
+        android:fontFamily="@font/bebasneueregular"
+        android:gravity="center_vertical"
+        android:text="GENDER"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/usernameinput3"
+        app:layout_constraintTop_toBottomOf="@+id/usernameinput3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
