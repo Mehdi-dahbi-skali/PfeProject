@@ -1,26 +1,29 @@
 package com.example.login;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
 public class LoginActivity extends AppCompatActivity {
-    private RequestQueue mQueue;
+
 
     private TextView username;
     private TextView pwd;
@@ -39,18 +42,41 @@ public class LoginActivity extends AppCompatActivity {
         loginbtn = findViewById(R.id.ButtonLogin);
         createbtn = findViewById(R.id.register);
         helpbtn = findViewById(R.id.help);
-        mQueue = Volley.newRequestQueue(this);
+
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                jsonParse();
+                BackendApi backendApi = RetrofitClient.getRetrofitinstance().create(BackendApi.class);
+                Call<User> call = backendApi.checkUser(username.toString() , pwd.toString());
+                call.enqueue(new Callback<User>() {
+                    @Override
+                    public void onResponse(Call<User> call, Response<User> response) {
+                        if (!response.isSuccessful()){
+                            Toast.makeText(LoginActivity.this, "404", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        if (username.toString().equals(response.body().getName()) && pwd.toString().equals(response.body().getJob()) ){
+                            Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        Toast.makeText(LoginActivity.this, "wrong info", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<User> call, Throwable t) {
+                        Toast.makeText(LoginActivity.this, "reques terr", Toast.LENGTH_SHORT).show();
+                        Log.e(TAG,t.getMessage());
+                    }
+                });
+
             }
         });
         helpbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(LoginActivity.this, "help page", Toast.LENGTH_SHORT).show();
+                setContentView(R.layout.activity_dasbord);
             }
         });
         createbtn.setOnClickListener(new View.OnClickListener() {
@@ -60,35 +86,5 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    private void jsonParse() {
 
-        String url = "https://api.myjson.com/bins/kp9wz";
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("employees");
-
-                            for (int i = 0; i < jsonArray.length(); i++) {
-                                JSONObject employee = jsonArray.getJSONObject(i);
-
-                                String firstName = employee.getString("firstname");
-                                String mail = employee.getString("mail");
-
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-
-        mQueue.add(request);
-    }
 }
