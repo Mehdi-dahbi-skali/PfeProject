@@ -11,12 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,9 +33,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         username = findViewById(R.id.loginText);
         pwd = findViewById(R.id.pwdinput);
-        loginbtn = findViewById(R.id.ButtonLogin);
-        createbtn = findViewById(R.id.register);
-        helpbtn = findViewById(R.id.help);
+        loginbtn = findViewById(R.id.ButtonRegister);
+        createbtn = findViewById(R.id.login);
+        helpbtn = findViewById(R.id.helpbtn);
 
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         if (username.toString().equals(response.body().getName()) && pwd.toString().equals(response.body().getJob()) ){
                             Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
+                            setContentView(R.layout.activity_dasbord);
                             return;
                         }
                         Toast.makeText(LoginActivity.this, "wrong info", Toast.LENGTH_SHORT).show();
@@ -76,7 +71,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(LoginActivity.this, "help page", Toast.LENGTH_SHORT).show();
-                setContentView(R.layout.activity_dasbord);
+                setContentView(R.layout.activity_notification);
+
             }
         });
         createbtn.setOnClickListener(new View.OnClickListener() {

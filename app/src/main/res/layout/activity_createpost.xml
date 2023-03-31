@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreatepostActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView4"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:textAlignment="center"
+        app:flow_horizontalAlign="center"
+        app:flow_verticalAlign="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#305CB1">
+
+            <TextView
+                android:id="@+id/BackToDashboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+
+                android:layout_marginTop="30dp"
+                android:drawableLeft="@drawable/arrowleftsolid"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/white"
+                android:fontFamily="@font/roboto_condensed_bold"
+                android:foregroundGravity="center_horizontal"
+                android:text="New Post"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/ButtonAddImg"
+        android:layout_width="395dp"
+        android:layout_height="258dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bgaddbtn"
+        android:text="+"
+        android:textColor="@color/white"
+        android:textSize="120sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView4" />
+
+    <TextView
+        android:id="@+id/AddDesc"
+        android:layout_width="384dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bgaddbtn"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:hint="Write Caption...."
+        android:padding="10dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonAddImg" />
+
+    <Button
+        android:id="@+id/ButtonCreatePost"
+        android:layout_width="128dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="45dp"
+        android:background="@drawable/bgcreatebtnpost"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:text="CREATE"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/AddDesc" />
+
+    <Button
+        android:id="@+id/AddTag"
+        android:layout_width="71dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bgcreatebtnpost"
+        android:drawableRight="@drawable/baseline_add_24"
+        android:drawableTint="@color/white"
+        android:fontFamily="@font/roboto_condensed_bold"
+        android:padding="5dp"
+        android:text="ADD TAG"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/AddDesc"
+        app:layout_constraintTop_toBottomOf="@+id/AddDesc" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

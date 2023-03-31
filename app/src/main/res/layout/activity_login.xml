@@ -77,7 +77,7 @@
         app:layout_constraintTop_toBottomOf="@+id/usernameinput" />
 
     <Button
-        android:id="@+id/ButtonLogin"
+        android:id="@+id/ButtonRegister"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
@@ -99,11 +99,11 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/bebasneueregular"
         android:text="FORGET YOUR ACCOUNT INFO"
-        app:layout_constraintStart_toStartOf="@+id/ButtonLogin"
-        app:layout_constraintTop_toBottomOf="@+id/ButtonLogin" />
+        app:layout_constraintStart_toStartOf="@+id/ButtonRegister"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonRegister" />
 
     <TextView
-        android:id="@+id/help"
+        android:id="@+id/helpbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -111,7 +111,7 @@
         android:text="GET HELP"
         android:textColor="#A90069E3"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="@+id/ButtonLogin"
+        app:layout_constraintEnd_toEndOf="@+id/ButtonRegister"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2"
@@ -140,7 +140,7 @@
         app:layout_constraintVertical_bias="0.466" />
 
     <TextView
-        android:id="@+id/register"
+        android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -149,7 +149,7 @@
         android:textColor="#610069E3"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="@+id/help"
+        app:layout_constraintEnd_toEndOf="@+id/helpbtn"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toTopOf="@+id/textView7"

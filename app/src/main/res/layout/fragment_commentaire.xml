@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CommentaireFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="656dp"
+            android:layout_marginTop="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView14">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/profileimg"
+                        android:layout_width="53dp"
+                        android:layout_height="47dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:src="@tools:sample/avatars" />
+
+                    <ImageView
+                        android:id="@+id/likeEmogiee"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/Emogiee"
+                        app:layout_constraintStart_toEndOf="@+id/profileimg"
+                        app:layout_constraintTop_toTopOf="@+id/Emogiee"
+                        app:srcCompat="@drawable/likeemogie" />
+
+                    <ImageView
+                        android:id="@+id/Emogiee"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_marginStart="4dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/Emogie"
+                        app:layout_constraintStart_toEndOf="@+id/likeEmogiee"
+                        app:layout_constraintTop_toTopOf="@+id/Emogie"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:srcCompat="@drawable/emojiheart" />
+
+                    <TextView
+                        android:id="@+id/commantairet"
+                        android:layout_width="252dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bgcommantaire"
+                        android:fontFamily="@font/roboto_condensed_bold"
+                        android:padding="10dp"
+                        android:text="TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView TextView "
+                        android:textColor="@color/white"
+                        android:textSize="10sp"
+                        app:layout_constraintStart_toEndOf="@+id/profileimg"
+                        app:layout_constraintTop_toTopOf="@+id/profileimg" />
+
+                    <ImageView
+                        android:id="@+id/Emogie"
+                        android:layout_width="19dp"
+                        android:layout_height="19dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginTop="4dp"
+                        app:layout_constraintStart_toEndOf="@+id/Emogiee"
+                        app:layout_constraintTop_toBottomOf="@+id/commantairet"
+                        app:srcCompat="@drawable/loveemogie" />
+
+                    <TextView
+                        android:id="@+id/replayBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/electrolize"
+                        android:text="Replay"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/Emogie"
+                        app:layout_constraintEnd_toEndOf="@+id/commantairet"
+                        app:layout_constraintTop_toTopOf="@+id/Emogie" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/countReaction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/electrolize"
+            android:text="200K"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/emogie"
+            app:layout_constraintStart_toEndOf="@+id/emogie"
+            app:layout_constraintTop_toTopOf="@+id/emogie" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/colseBtn" />
+
+        <ImageView
+            android:id="@+id/colseBtn"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/baseline_close_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/heartEmogie"
+            android:layout_width="53dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="28dp"
+            app:layout_constraintBottom_toBottomOf="@+id/likeEmogie"
+            app:layout_constraintStart_toStartOf="@+id/likeEmogie"
+            app:layout_constraintTop_toTopOf="@+id/likeEmogie"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/loveemogie" />
+
+        <ImageView
+            android:id="@+id/likeEmogie"
+            android:layout_width="53dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/colseBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/colseBtn"
+            app:srcCompat="@drawable/likeemogie" />
+
+        <ImageView
+            android:id="@+id/emogie"
+            android:layout_width="53dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="31dp"
+            app:layout_constraintBottom_toBottomOf="@+id/heartEmogie"
+            app:layout_constraintStart_toStartOf="@+id/heartEmogie"
+            app:layout_constraintTop_toTopOf="@+id/heartEmogie"
+            app:srcCompat="@drawable/emojiheart" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
