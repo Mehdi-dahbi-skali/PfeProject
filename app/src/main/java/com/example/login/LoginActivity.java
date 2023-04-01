@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         if (username.toString().equals(response.body().getName()) && pwd.toString().equals(response.body().getJob()) ){
                             Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                            setContentView(R.layout.activity_dasbord);
+                            setContentView(R.layout.activity_dashbord);
                             return;
                         }
                         Toast.makeText(LoginActivity.this, "wrong info", Toast.LENGTH_SHORT).show();

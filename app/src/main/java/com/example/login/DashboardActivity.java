@@ -3,11 +3,10 @@ package com.example.login;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class DasbordActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity {
     private ImageView HomeBtn;
     private ImageView NotificationBtn;
     private ImageView ProfileBtn;
@@ -15,10 +14,11 @@ public class DasbordActivity extends AppCompatActivity {
     private TextView countLike;
     private TextView cmt;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dasbord);
+        setContentView(R.layout.activity_dashbord);
         HomeBtn = findViewById(R.id.HomeIcon);
         NotificationBtn=findViewById(R.id.NotificationIcon);
         ProfileBtn=findViewById(R.id.ProfileIcon);
@@ -26,15 +26,18 @@ public class DasbordActivity extends AppCompatActivity {
         countLike=findViewById(R.id.count);
         cmt =findViewById(R.id.cmt);
 
+
         HomeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_dasbord);
+
+                setContentView(R.layout.activity_dashbord);
             }
         });
         NotificationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 setContentView(R.layout.activity_notification);
             }
         });
