@@ -1,33 +1,33 @@
 package com.example.login;
 
 public class User {
-    private String name;
-    private String job;
+    private String email;
+    private String pwd;
     private String id;
     private String createdAt;
-
-    public User(String name, String job, String id, String createdAt) {
-        this.name = name;
-        this.job = job;
+    public User(String email, String pwd, String id, String createdAt) {
+        this.email = email;
+        this.pwd = pwd;
         this.id = id;
         this.createdAt = createdAt;
     }
 
-    public String getName() {
-        return name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getJob() {
-        return job;
+    public String getPwd() {
+        return pwd;
     }
 
-    public void setJob(String job) {
-        this.job = job;
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
+
 
     public String getId() {
         return id;

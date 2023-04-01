@@ -8,7 +8,7 @@ import retrofit2.http.POST;
 public interface BackendApi {
 
     @FormUrlEncoded
-    @POST("/api/users")
-    Call<User> checkUser(@Field("name") String name, @Field("job") String job);
+    @POST("/api/auth/login")
+    Call<User> checkUser(@Field("email") String email, @Field("password") String password);
 
 }

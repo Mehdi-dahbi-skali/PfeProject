@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,53 +18,46 @@ import retrofit2.Response;
 
 
 public class LoginActivity extends AppCompatActivity {
-
-
-    private TextView username;
-    private TextView pwd;
-    private Button loginbtn;
-    private TextView helpbtn;
-    private TextView createbtn;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        username = findViewById(R.id.loginText);
-        pwd = findViewById(R.id.pwdinput);
-        loginbtn = findViewById(R.id.ButtonRegister);
-        createbtn = findViewById(R.id.login);
-        helpbtn = findViewById(R.id.helpbtn);
+        final TextView username = findViewById(R.id.loginText);
+        final TextView pwd = findViewById(R.id.pwdinput);
+        final Button loginbtn = findViewById(R.id.ButtonRegister);
+        final TextView createbtn = findViewById(R.id.login);
+        final TextView helpbtn = findViewById(R.id.helpbtn);
 
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                BackendApi backendApi = RetrofitClient.getRetrofitinstance().create(BackendApi.class);
-                Call<User> call = backendApi.checkUser(username.toString() , pwd.toString());
-                call.enqueue(new Callback<User>() {
-                    @Override
-                    public void onResponse(Call<User> call, Response<User> response) {
-                        if (!response.isSuccessful()){
-                            Toast.makeText(LoginActivity.this, "404", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        if (username.toString().equals(response.body().getName()) && pwd.toString().equals(response.body().getJob()) ){
+                if(username.getText().toString() !=null && pwd.getText() != null){
+                    BackendApi backendApi = RetrofitClient.getRetrofitinstance("http://10.0.2.2:3000/").create(BackendApi.class);
+                    Call<User> call = backendApi.checkUser(username.getText().toString() , pwd.getText().toString());
+                    call.enqueue(new Callback<User>() {
+                        @Override
+                        public void onResponse(Call<User> call, Response<User> response) {
+                            if (!response.isSuccessful()){
+                                Toast.makeText(LoginActivity.this, "404", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
                             Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_SHORT).show();
-                            setContentView(R.layout.activity_dashbord);
+                            Intent intent = new Intent(LoginActivity.this,DashboardActivity.class);
+                            startActivity(intent);
                             return;
-                        }
-                        Toast.makeText(LoginActivity.this, "wrong info", Toast.LENGTH_SHORT).show();
-                    }
 
-                    @Override
-                    public void onFailure(Call<User> call, Throwable t) {
-                        Toast.makeText(LoginActivity.this, "reques terr", Toast.LENGTH_SHORT).show();
-                        Log.e(TAG,t.getMessage());
-                    }
-                });
+                        }
+
+                        @Override
+                        public void onFailure(Call<User> call, Throwable t) {
+                            Toast.makeText(LoginActivity.this, "reques terr", Toast.LENGTH_SHORT).show();
+                            Log.e(TAG,t.getMessage());
+                        }
+                    });
+                }else {
+                    Toast.makeText(LoginActivity.this, "All field are req!!!", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -71,14 +65,17 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(LoginActivity.this, "help page", Toast.LENGTH_SHORT).show();
-                setContentView(R.layout.activity_notification);
+                Intent intent = new Intent(LoginActivity.this,NotificationActivity.class);
+                startActivity(intent);
 
             }
         });
         createbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_create);
+                Intent intent = new Intent(LoginActivity.this,CreateActivity.class);
+                startActivity(intent);
+
             }
         });
     }

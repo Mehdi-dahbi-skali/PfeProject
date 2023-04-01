@@ -2,6 +2,7 @@ package com.example.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,24 +10,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 public class CreateActivity extends AppCompatActivity {
-    private EditText username ;
-    private EditText pwd;
-    private EditText pwdConfirm;
-    private Button create;
-    private TextView help;
-    private TextView login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
-        username=findViewById(R.id.usernameinput);
-        pwd=findViewById(R.id.pwdinput);
-        pwdConfirm=findViewById(R.id.pwdconfirminput);
-        create=findViewById(R.id.ButtonRegister);
-        help=findViewById(R.id.helpbtn);
-        login=findViewById(R.id.login);
+        final EditText username=findViewById(R.id.usernamecreateinput);
+        final EditText pwd=findViewById(R.id.pwdcreateinput);
+        final EditText pwdConfirm=findViewById(R.id.pwdconfirminput);
+        final Button create=findViewById(R.id.ButtonRegister);
+        final TextView help=findViewById(R.id.helpbtn);
+        final TextView login=findViewById(R.id.login);
 
         create.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +35,9 @@ public class CreateActivity extends AppCompatActivity {
                     return;
                 }
                 Toast.makeText(CreateActivity.this, "Created succeful!!", Toast.LENGTH_SHORT).show();
-                setContentView(R.layout.activity_login);
+                Intent intent = new Intent(CreateActivity.this,LoginActivity.class);
+                startActivity(intent);
+                return;
             }
         });
         help.setOnClickListener(new View.OnClickListener() {
@@ -52,12 +49,11 @@ public class CreateActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_login);
+                Intent intent = new Intent(CreateActivity.this,LoginActivity.class);
+                startActivity(intent);
+                return;
             }
         });
-
-
-
 
     }
 }

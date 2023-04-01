@@ -1,68 +1,56 @@
 package com.example.login;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 public class DashboardActivity extends AppCompatActivity {
-    private ImageView HomeBtn;
-    private ImageView NotificationBtn;
-    private ImageView ProfileBtn;
-    private TextView username;
-    private TextView countLike;
-    private TextView cmt;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashbord);
-        HomeBtn = findViewById(R.id.HomeIcon);
-        NotificationBtn=findViewById(R.id.NotificationIcon);
-        ProfileBtn=findViewById(R.id.ProfileIcon);
-        username=findViewById(R.id.Username);
-        countLike=findViewById(R.id.count);
-        cmt =findViewById(R.id.cmt);
-
-
-        HomeBtn.setOnClickListener(new View.OnClickListener() {
+        final TextView userProfile;
+        final ImageView home = findViewById(R.id.HomeIcon);
+        final ImageView NotificationIcon=findViewById(R.id.NotificationIcon);
+        final ImageView ProfileIcon=findViewById(R.id.ProfileIcon);
+        userProfile = findViewById(R.id.UsernameView);
+        userProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                setContentView(R.layout.activity_dashbord);
+                Intent intent = new Intent(DashboardActivity.this,ProfileActivity.class);
+                startActivity(intent);
+                return;
             }
         });
-        NotificationBtn.setOnClickListener(new View.OnClickListener() {
+        home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                setContentView(R.layout.activity_notification);
+                Intent intent = new Intent(DashboardActivity.this,DashboardActivity.class);
+                startActivity(intent);
+                return;
             }
         });
-        ProfileBtn.setOnClickListener(new View.OnClickListener() {
+        NotificationIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_profile);
+                Intent intent = new Intent(DashboardActivity.this,NotificationActivity.class);
+                startActivity(intent);
+                return;
             }
         });
-        username.setOnClickListener(new View.OnClickListener() {
+        ProfileIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setContentView(R.layout.activity_profile);
-            }
-        });
-        countLike.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setContentView(R.layout.fragment_reaction);
-            }
-        });
-        cmt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                setContentView(R.layout.fragment_commentaire);
+                Intent intent = new Intent(DashboardActivity.this,ProfileActivity.class);
+                startActivity(intent);
+                return;
             }
         });
 

@@ -6,10 +6,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
     public static Retrofit retrofit;
-    public static Retrofit getRetrofitinstance(){
+    public static Retrofit getRetrofitinstance(String baseUrl){
         if (retrofit == null){
             retrofit = new Retrofit.Builder()
-                    .baseUrl("https://reqres.in/")
+                    .baseUrl(baseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
