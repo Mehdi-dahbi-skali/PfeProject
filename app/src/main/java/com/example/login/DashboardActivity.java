@@ -37,10 +37,11 @@ public class DashboardActivity extends AppCompatActivity {
         final ImageView ProfileIcon=findViewById(R.id.ProfileIcon);
 
         List<Post> posts=new ArrayList<Post>();
-        posts.add(new Post("mehdi","test test"));
-        posts.add(new Post("mehdi2","test test"));
-        posts.add(new Post("mehdi33","test test4hvcdv"));
-        posts.add(new Post("mehdIIIIIi","test testcdhbcdhcb"));
+        posts.add(new Post("mehdi","test test","12"));
+        posts.add(new Post("mehdi2","test test","11"));
+        posts.add(new Post("mehdi33","test test4hvcdv","10"));
+        posts.add(new Post("mehdIIIIIi","test testcdhbcdhcb","9"));
+
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdpter(getApplicationContext(),posts));

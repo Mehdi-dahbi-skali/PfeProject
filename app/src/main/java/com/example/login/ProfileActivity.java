@@ -6,11 +6,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if(getIntent().getStringExtra("userId") != null){
+            Toast.makeText(ProfileActivity.this, getIntent().getStringExtra("userId"), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         final ImageView Poste=findViewById(R.id.poste);

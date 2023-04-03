@@ -3,14 +3,14 @@ package com.example.login;
 public class Post {
     String username;
     int img;
-    int id;
+    String id;
 
     String desc;
 
-    public Post(String username,String desc) {
+    public Post(String username,String desc,String id) {
         this.username = username;
       //  this.img = img;
-        //this.id = id;
+        this.id = id;
         this.desc=desc;
     }
 
@@ -41,11 +41,11 @@ public class Post {
         this.img = img;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 }

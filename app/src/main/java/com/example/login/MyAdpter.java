@@ -1,7 +1,9 @@
 package com.example.login;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -27,8 +29,18 @@ public class MyAdpter extends RecyclerView.Adapter<MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-     holder.username.setText(posts.get(position).getUsername());
+        final Post post=posts.get(position);
+     holder.username.setText(post.getUsername());
+     holder.username.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+             Intent intent = new Intent(view.getContext(), ProfileActivity.class);
+             intent.putExtra("userId", post.getId());
+             view.getContext().startActivity(intent);
+         }
+     });
      holder.desc.setText(posts.get(position).getDesc());
+
     }
 
     @Override
