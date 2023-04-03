@@ -41,10 +41,36 @@ public class DashboardActivity extends AppCompatActivity {
         posts.add(new Post("mehdi2","test test"));
         posts.add(new Post("mehdi33","test test4hvcdv"));
         posts.add(new Post("mehdIIIIIi","test testcdhbcdhcb"));
-
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new MyAdpter(getApplicationContext(),posts));
+
+        BackendApi backendApi = RetrofitClient.getRetrofitinstance("http://192.168.1.9:3000/").create(BackendApi.class);
+        // Create a JSON object with the username and password fields
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("email", "ggggg");
+        // Send the JSON object as the request body
+        Call<List<Post>> call = backendApi.GetPostes();
+
+        call.enqueue(new Callback<List<Post>>() {
+            @Override
+            public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
+                if (!response.isSuccessful()){
+                    Toast.makeText(DashboardActivity.this, "404", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Toast.makeText(DashboardActivity.this, "dddd", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            @Override
+            public void onFailure(Call<List<Post>> call, Throwable t) {
+
+            }
+        });
+
+
+
 
 
 

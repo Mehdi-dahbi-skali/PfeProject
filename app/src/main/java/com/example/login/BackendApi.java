@@ -19,7 +19,7 @@ public interface BackendApi {
     @POST("/api/auth/register")
     Call<User> CreateUser(@Body JsonObject body);
 
-    @GET("/api/posts")
-    Call<List<Post>> GetPostes(@Body JsonObject body);
+    @GET("/api/posts/")
+    Call<List<Post>> GetPostes();
 
 }
