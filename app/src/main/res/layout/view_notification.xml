@@ -23,8 +23,8 @@
 
             <ImageView
                 android:id="@+id/profileimage"
-                android:layout_width="155dp"
-                android:layout_height="165dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="13dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="username"
-                android:textSize="50sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/profileimage"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -48,15 +48,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="liked your post"
-                android:textSize="50sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/usernameName"
                 app:layout_constraintStart_toEndOf="@+id/usernameName"
                 app:layout_constraintTop_toTopOf="@+id/usernameName" />
 
             <ImageView
                 android:id="@+id/postimg"
-                android:layout_width="155dp"
-                android:layout_height="165dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/action"

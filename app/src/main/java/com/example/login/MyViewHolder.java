@@ -16,7 +16,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
        // post=itemView.findViewById(R.id.poste);
         username=itemView.findViewById(R.id.UsernameView);
         desc=itemView.findViewById(R.id.desc);
-        //count=itemView.findViewById(R.id.count);
-        //countcmt=itemView.findViewById(R.id.countcommentaire);
+        count=itemView.findViewById(R.id.count);
+        countcmt=itemView.findViewById(R.id.countcommentaire);
     }
 }

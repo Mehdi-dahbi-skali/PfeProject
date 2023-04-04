@@ -37,10 +37,18 @@ public class DashboardActivity extends AppCompatActivity {
         final ImageView ProfileIcon=findViewById(R.id.ProfileIcon);
 
         List<Post> posts=new ArrayList<Post>();
-        posts.add(new Post("mehdi","test test","12"));
-        posts.add(new Post("mehdi2","test test","11"));
-        posts.add(new Post("mehdi33","test test4hvcdv","10"));
-        posts.add(new Post("mehdIIIIIi","test testcdhbcdhcb","9"));
+        List<Cmt> cmts=new ArrayList<Cmt>();
+        List<SubCmt> subcmts=new ArrayList<SubCmt>();
+        List<Reactions> reactions=new ArrayList<Reactions>();
+        posts.add(new Post("mehdi","test test","12",reactions,cmts));
+        posts.add(new Post("mehdi2","test test","11",reactions,cmts));
+        posts.add(new Post("mehdi33","test test4hvcdv","10",reactions,cmts));
+        posts.add(new Post("mehdIIIIIi","test testcdhbcdhcb","9",reactions,cmts));
+
+        cmts.add(new Cmt("mehdIIIIIi","test testcdhbcdhcb",subcmts,"1",reactions));
+        cmts.add(new Cmt("mehdIIIIIi","test testcdhbcdhcb",subcmts,"2",reactions));
+        cmts.add(new Cmt("mehdIIIIIi","test testcdhbcdhcb",subcmts,"3",reactions));
+        cmts.add(new Cmt("mehdIIIIIi","test testcdhbcdhcb",subcmts,"4",reactions));
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

@@ -14,13 +14,13 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        if(getIntent().getStringExtra("userId") != null){
-            Toast.makeText(ProfileActivity.this, getIntent().getStringExtra("userId"), Toast.LENGTH_SHORT).show();
-            return;
-        }
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        Intent intent = getIntent();
+        String userId = intent.getStringExtra("userId");
+
+
         final ImageView Poste=findViewById(R.id.poste);
         final ImageView homeIcon=findViewById(R.id.homeBtn);
 
