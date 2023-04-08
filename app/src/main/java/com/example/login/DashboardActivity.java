@@ -38,21 +38,32 @@ public class DashboardActivity extends AppCompatActivity {
 
         List<Post> posts=new ArrayList<Post>();
         List<Cmt> cmts=new ArrayList<Cmt>();
+        List<Cmt> cmt2=new ArrayList<Cmt>();
         List<SubCmt> subcmts=new ArrayList<SubCmt>();
         List<Reactions> reactions=new ArrayList<Reactions>();
-        posts.add(new Post("mehdi","test test","12",reactions,cmts));
+        posts.add(new Post("mehdi","test test","12",reactions,cmt2));
         posts.add(new Post("mehdi2","test test","11",reactions,cmts));
         posts.add(new Post("mehdi33","test test4hvcdv","10",reactions,cmts));
         posts.add(new Post("mehdIIIIIi","test testcdhbcdhcb","9",reactions,cmts));
 
+        subcmts.add(new SubCmt("mehdi hdgd", "String content String content String content","1", "5", reactions));
+        subcmts.add(new SubCmt("mehdi hdgd", "String content String content String content","1", "6", reactions));
+        subcmts.add(new SubCmt("mehdi hdgd", "String content String content String content", "2","7", reactions));
+        subcmts.add(new SubCmt("mehdi hdgd", "String content String content String content", "3","8", reactions));
+        subcmts.add(new SubCmt("mehdi hdgd", "String content String content String content", "4","9", reactions));
+        subcmts.add(new SubCmt("mehdi hdgd", "String content String content String content", "3","10", reactions));
+
         cmts.add(new Cmt("mehdIIIIIi","test testcdhbcdhcb",subcmts,"1",reactions));
-        cmts.add(new Cmt("mehdIIIIIi","test testcdhbcdhcb",subcmts,"2",reactions));
-        cmts.add(new Cmt("mehdIIIIIi","test testcdhbcdhcb",subcmts,"3",reactions));
-        cmts.add(new Cmt("mehdIIIIIi","test testcdhbcdhcb",subcmts,"4",reactions));
+        cmts.add(new Cmt("gygyg","test testcdhbcdhcb",subcmts,"2",reactions));
+        cmts.add(new Cmt("vgvgvg","test testcdhbcdhcb",subcmts,"3",reactions));
+        cmts.add(new Cmt("gvgvgv","test testcdhbcdhcb",subcmts,"4",reactions));
+
+        cmt2.add(new Cmt("mehdIIIIIi","test testcdhbcdhcb",subcmts,"1",reactions));
+        Intent intent = getIntent();
 
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new MyAdpter(getApplicationContext(),posts));
+        recyclerView.setAdapter(new MyAdpter(getApplicationContext(),posts,intent.getStringExtra("username")+""));
 
         BackendApi backendApi = RetrofitClient.getRetrofitinstance("http://192.168.1.9:3000/").create(BackendApi.class);
         // Create a JSON object with the username and password fields

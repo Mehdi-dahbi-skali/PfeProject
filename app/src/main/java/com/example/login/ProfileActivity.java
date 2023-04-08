@@ -19,11 +19,14 @@ public class ProfileActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String userId = intent.getStringExtra("userId");
+       String usernameIntent=intent.getStringExtra("username");
 
 
         final ImageView Poste=findViewById(R.id.poste);
         final ImageView homeIcon=findViewById(R.id.homeBtn);
+        final TextView username=findViewById(R.id.Showusername);
 
+        username.setText(usernameIntent+"");
         Poste.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

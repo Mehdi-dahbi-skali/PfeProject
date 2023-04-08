@@ -4,17 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CommentaireFragment">
+    tools:context=".CommentaireActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/addBtnCmt"
+            android:layout_width="68dp"
+            android:layout_height="51dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/cmtCreate"
+            app:layout_constraintStart_toEndOf="@+id/cmtCreate"
+            app:layout_constraintTop_toTopOf="@+id/cmtCreate"
+            app:srcCompat="@drawable/baseline_add_24" />
+
+        <EditText
+            android:id="@+id/cmtCreate"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bginput"
+            android:backgroundTint="#D3D2D2"
+            android:ems="10"
+            android:fontFamily="@font/bebasneueregular"
+            android:hint="Add Comment"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="15dp"
+            android:paddingTop="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="fill_parent"
             android:layout_height="656dp"
             android:layout_marginTop="2dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView14">
 
