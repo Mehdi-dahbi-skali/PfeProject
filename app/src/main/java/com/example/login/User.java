@@ -11,6 +11,7 @@ public class User {
     private String state;
     private String cin;
     private String cne;
+    private String token;
 
     public User(String email, String pwd, String id, String createdAt) {
         this.email = email;
@@ -99,4 +100,7 @@ public class User {
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
+
+    public String getToken() { return token; }
+    public void setToken(String token) { this.token = token; }
 }

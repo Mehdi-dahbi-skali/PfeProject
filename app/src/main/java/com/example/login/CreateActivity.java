@@ -41,20 +41,20 @@ public class CreateActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (username.getText() == null || pwd.getText() == null){
-                    Toast.makeText(CreateActivity.this, "all field are requerired !!!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CreateActivity.this, "all field are required !!!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
 
-                BackendApi backendApi = RetrofitClient.getRetrofitinstance("http://192.168.1.9:3000/").create(BackendApi.class);
+                BackendApi backendApi = RetrofitClient.getRetrofitinstance("http://192.168.1.46:3000/").create(BackendApi.class);
 
                 // Create a JSON object with the username and password fields
                 JsonObject jsonObject = new JsonObject();
                 jsonObject.addProperty("email", username.getText().toString());
                 jsonObject.addProperty("password", pwd.getText().toString());
-                jsonObject.addProperty("firstName", firstname.getText().toString());
-                jsonObject.addProperty("lastName", lastname.getText().toString());
-                jsonObject.addProperty("dateBirth", DateBirth.getText().toString());
+                jsonObject.addProperty("first_name", firstname.getText().toString());
+                jsonObject.addProperty("last_name", lastname.getText().toString());
+                jsonObject.addProperty("date_birth", DateBirth.getText().toString());
                 jsonObject.addProperty("state", "en attente");
                 jsonObject.addProperty("cin", cin.getText().toString());
                 jsonObject.addProperty("cne", cne.getText().toString());
@@ -65,6 +65,7 @@ public class CreateActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
                         if (!response.isSuccessful()){
+                            Log.i("login", response.toString());
                             Toast.makeText(CreateActivity.this, "404", Toast.LENGTH_SHORT).show();
                             return;
                         }
